@@ -1,0 +1,35 @@
+import Core::{ SemanticVersion, #compiler, #Error };
+import Io::PrintLine;
+
+const Rux040 = SemanticVersion::New(0, 4, 0);
+const Rux100 = SemanticVersion::New(1, 0, 0);
+
+// `when` picks a branch while compiling. Only the taken branch reaches the
+// binary; the others are never resolved or type-checked, so they may use
+// features that the compiler running this build does not have yet.
+func Describe() {
+    when #compiler.version >= Rux100 {
+        PrintLine("Stable release: the 1.x language is frozen");
+    } else when #compiler.version >= Rux040 {
+        PrintLine("Preview release: compile-time programming is available");
+    } else {
+        #Error("Version requires Rux 0.4.0 or newer");
+    }
+}
+
+func Main() -> int {
+    // The version fields are compile-time constants, so these numbers are
+    // folded into the binary instead of being read at run time.
+    PrintLine("Compiled with Rux {}.{}.{}",
+        #compiler.version.major,
+        #compiler.version.minor,
+        #compiler.version.patch);
+
+    Describe();
+
+    // `when` also works inside a function body, where it adds no scope.
+    when #compiler.version.minor >= 4 {
+        PrintLine("The `when` statement is supported");
+    }
+    return 0;
+}

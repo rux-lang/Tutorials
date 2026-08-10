@@ -1,7 +1,7 @@
 #Link("Kernel32.dll") 
 extern {
     func CreateFileA(
-        fileName: *const char8,
+        fileName: *char8,
         dwDesiredAccess: uint32,
         dwShareMode: uint32,
         lpSecurityAttributes: *opaque,
@@ -12,7 +12,7 @@ extern {
 
     func WriteFile(
         file: *opaque,
-        buffer: *const opaque,
+        buffer: *opaque,
         numberOfBytesToWrite: uint32,
         numberOfBytesWritten: *uint32,
         overlapped: *opaque

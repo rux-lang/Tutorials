@@ -4,19 +4,18 @@ Example projects and programming tutorials for the [Rux](https://rux-lang.dev) l
 
 ## List of Projects
 
-| Package                 | Description                                                                       |
-| ----------------------- | --------------------------------------------------------------------------------- |
-| [Hello](Hello/)         | Print "Hello, World!" — the minimal Rux application                               |
-| [Greeting](Greeting/)   | Iterate over a string array and print greetings in multiple languages             |
-| [Primitive](Primitive/) | Declare and print all primitive types: integers, floats, booleans, and characters |
-| [Factorial](Factorial/) | Calculate and print factorial values with a loop                                  |
-| [Array](Array/)         | Use a dynamic array with manual memory management (`Alloc`, `Zero`, `Free`)       |
-| [File](File/)           | Write text to a file with WinAPI                                                  |
-| [Circle](Circle/)       | Read input from stdin, parse a string to a number, and match on the result        |
+- **[Hello](Hello/)** — print "Hello, World!", the minimal Rux application
+- **[Greeting](Greeting/)** — iterate over a string array and print greetings in multiple languages
+- **[Primitive](Primitive/)** — declare and print all primitive types: integers, floats, booleans, and characters
+- **[Factorial](Factorial/)** — calculate and print factorial values with a loop
+- **[Array](Array/)** — use a dynamic array with manual memory management (`Alloc`, `Zero`, `Free`)
+- **[File](File/)** — write text to a file with WinAPI (Windows only)
+- **[Circle](Circle/)** — read input from stdin, parse a string to a number, and match on the result
+- **[Version](Version/)** — select code at compile time with `when` and the compiler version
 
 ## Running an Example
 
-Each example is a standalone Rux package with its own `Rux.toml`.
+Each example is a standalone Rux package with its own `Rux.toml`, and requires Rux 0.4.0 or newer.
 
 ```sh
 cd Hello
@@ -29,6 +28,13 @@ If necessary, install the dependencies first:
 cd Hello
 rux install
 rux run
+```
+
+To build and type-check an example without running it:
+
+```sh
+cd Hello
+rux check
 ```
 
 ## License

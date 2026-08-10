@@ -5,7 +5,7 @@ func Main() -> int {
     PrintLine("Dynamic array");
     let count: uint = 16;
     let size = count * sizeof(uint);
-    var ptr = Alloc(size) as *uint;
+    var ptr = Alloc(size) as *var uint;
     if (ptr == null) {
         PrintLine("Failed to allocate memory");
         return 1;
